@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import './styles.css'
+import React from 'react';
 
-export default class Home extends Component {
+import Header from '../../components/Header/index'
+
+export default function Dashboard() {
 
 
-    render() {
-        return (
-
-        )
-    }
+    return (
+        <div>
+            <Header/>
+        </div>
+    )
 }
