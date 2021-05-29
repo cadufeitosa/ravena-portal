@@ -1,0 +1,11 @@
+.mainNotInServer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: gainsboro;
+    height: 250px;
+    width: 900px;
+    text-align: center;
+    border-radius: 10px;
+}

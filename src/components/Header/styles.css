@@ -1,0 +1,142 @@
+.outer {
+    display: flex;
+    height: 8%;
+    gap: 55vw;
+    margin-left: 20px;
+}
+
+.inner{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+button {
+    height: 2vw;
+    border-radius: 50px;
+    background: transparent;
+    border-color: purple;
+    border-style: solid;
+    color: purple;
+    font-weight: bolder;
+    width: 10vw;
+    font-size: 0.8vw;
+}
+
+button:hover {
+    cursor: pointer;
+    background: purple;
+    color: white;
+}
+
+.title {
+    color: purple;
+}
+
+.title:hover {
+    cursor: pointer;
+    color: black;
+}
+
+@media (max-width: 1100px) {
+    button {
+        height: 3vw;
+        border-radius: 50px;
+        background: transparent;
+        border-color: purple;
+        border-style: solid;
+        color: purple;
+        font-weight: bolder;
+        width: 15vw;
+        font-size: 1vw;
+    }
+    .outer {
+        display: flex;
+        height: 8%;
+        gap: 37vw;
+        margin-left: 20px;
+    }
+    .title {
+        color: purple;
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 850px) {
+    button {
+        height: 4vw;
+        border-radius: 50px;
+        background: transparent;
+        border-color: purple;
+        border-style: solid;
+        color: purple;
+        font-weight: bolder;
+        width: 15vw;
+        font-size: 1.2vw;
+    }
+    .outer {
+        display: flex;
+        height: 8%;
+        gap: 30vw;
+        margin-left: 20px;
+    }
+    .title {
+        color: purple;
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 520px) {
+    button {
+        height: 5vw;
+        border-radius: 50px;
+        background: transparent;
+        border-color: purple;
+        border-style: solid;
+        color: purple;
+        font-weight: bolder;
+        width: 20vw;
+        font-size: 1.5vw;
+    }
+    .outer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8vw;
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2%;
+    }
+    .title {
+        color: purple;
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        height: 8vw;
+        border-radius: 50px;
+        background: transparent;
+        border-color: purple;
+        border-style: solid;
+        color: purple;
+        font-weight: bolder;
+        width: 25vw;
+        font-size: 2.6vw;
+    }
+    .outer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8%;
+        gap: 0vw;
+        margin-left: 0px;
+    }
+    .title {
+        color: purple;
+        font-size: 8vw;
+    }
+}
