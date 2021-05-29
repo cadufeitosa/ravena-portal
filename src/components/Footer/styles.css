@@ -1,0 +1,20 @@
+.footer1 {
+    display: flex;
+    wrap-option: wrap;
+    justify-content: center;
+    gap: 0.5vw;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+.icons {
+    display: flex;
+    gap: 1vw;
+    size: 50px;
+    margin-bottom: 2%;
+}
+
+.icon:hover{
+    cursor: pointer;
+    color: purple;
+}

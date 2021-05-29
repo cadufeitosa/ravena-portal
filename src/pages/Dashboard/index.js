@@ -1,12 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+
 import './styles.css'
 
-export default class Home extends Component {
+import Header from '../../components/Header/index'
+import Sidebar from "../../components/Sidebar";
+import DashMain from "../../components/DashMain"
 
 
-    render() {
-        return (
+export default function Dashboard() {
 
-        )
-    }
+    return (
+        <div className="main">
+            <div>
+                <Header/>
+            </div>
+            <div className="dashOuter">
+                <div className="side">
+                    <Sidebar/>
+                </div>
+                <div className="mainDash">
+                    <DashMain/>
+                </div>
+            </div>
+        </div>
+    )
 }
