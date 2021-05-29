@@ -1,30 +1,35 @@
-import React, {useContext, useEffect} from 'react';
-import rvnAPI from '../../axios/instance';
+import React, {useContext} from 'react';
 import './styles.css'
 import {useHistory} from "react-router-dom"
 import UserContext from "../../context/UserContext";
 
 export default function Header() {
 
-    const {user, setUser} = useContext(UserContext)
+    const {user} = useContext(UserContext)
 
     const history = useHistory()
 
+    const isloggedin = user === 1
     return (
-        <div class="outer">
-            <h1 class="title" onClick={() => history.push('/')}>RAVENA</h1>
-            <div class="inner">
-                <button onClick={() =>
+        <div className="outer">
+            <h1 className="title" onClick={() => history.push('/')}>RAVENA</h1>
+            <div className="inner">
+                <button onClick={() => {isloggedin ? window.alert("Você deve estar logado para acessar o dashboard") :
                     history.push('/dashboard')
-                }>DASHBOARD
+                }}>DASHBOARD
                 </button>
                 <button onClick={() =>
                     window.location.assign('https://discord.gg/sVnxzCM6t8')}>RAVENA COMMUNITY
                 </button>
+                {isloggedin ?
                 <button onClick={() =>
                     window.location.assign('http://localhost:5000/auth')
                 }>LOGIN
                 </button>
+                : <button onClick={() =>
+                        window.location.assign('http://localhost:5000/auth/logout')
+                    }>LOGOUT
+                    </button> }
             </div>
         </div>
     )

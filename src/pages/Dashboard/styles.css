@@ -1,0 +1,20 @@
+.main{
+    overflow: unset;
+}
+
+.dashOuter {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    background-image: linear-gradient(to bottom right, darkmagenta, indigo);
+
+}
+
+.side {
+
+}
+
+.mainDash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
