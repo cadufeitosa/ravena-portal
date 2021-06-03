@@ -23,11 +23,11 @@ export default function Header() {
                 </button>
                 {isloggedin ?
                 <button onClick={() =>
-                    window.location.assign('https://ravena-api.herokuapp.com/auth')
+                    window.location.assign('https://api.ravenabot.com/auth')
                 }>LOGIN
                 </button>
                 : <button onClick={() =>
-                        window.location.assign('https://ravena-api.herokuapp.com/auth/logout')
+                        window.location.assign('https://api.ravenabot.com/auth/logout')
                     }>LOGOUT
                     </button> }
             </div>
