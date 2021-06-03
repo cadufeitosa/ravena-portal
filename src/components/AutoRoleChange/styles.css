@@ -1,19 +1,13 @@
-.mainNotInServer {
+.autoRoleMain {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     background: gainsboro;
     height: 250px;
-    width: 900px;
+    width: 500px;
     text-align: center;
     border-radius: 10px;
-}
-
-.dashMain{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5%;
+    column-gap: 2%;
+    margin-top: 5%;
 }
