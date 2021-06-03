@@ -23,11 +23,11 @@ export default function Header() {
                 </button>
                 {isloggedin ?
                 <button onClick={() =>
-                    window.location.assign('http://localhost:5000/auth')
+                    window.location.assign('https://ravena-api.herukoapp.com/auth')
                 }>LOGIN
                 </button>
                 : <button onClick={() =>
-                        window.location.assign('http://localhost:5000/auth/logout')
+                        window.location.assign('https://ravena-api.herukoapp.com/auth/logout')
                     }>LOGOUT
                     </button> }
             </div>

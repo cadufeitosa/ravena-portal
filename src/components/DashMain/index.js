@@ -54,7 +54,7 @@ export default function DashMain() {
             <div className="mainNotInServer">
                 <h1>Não estou no seu servidor ainda! Clique no botão abaixo para me adicionar!</h1>
                 <button onClick={() => {
-                    window.location.assign(`https://discord.com/api/oauth2/authorize?client_id=704874746352893952&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard&scope=bot&guild_id=${guild}`)
+                    window.location.assign(`https://discord.com/api/oauth2/authorize?client_id=704874746352893952&permissions=8&scope=bot&guild_id=${guild}`)
                 }
                 }>Adicionar ao servidor!
                 </button>
