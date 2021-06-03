@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiurl = "http://localhost:5000"
+const apiurl = "https://ravena-api.herokuapp.com"
 
 const rvnAPI = axios.create({
     baseURL: `${apiurl}`

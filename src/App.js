@@ -9,15 +9,17 @@ import ReactGA from 'react-ga';
 import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard"
 import rvnAPI from "./axios/instance";
+import CurrentGuildContext from "./context/CurrentGuildContext";
 
 function App() {
     const [user, setUser] = useState(1)
     const [guild, setGuild] = useState(1)
+    const [currentGuild, setCurrentGuild] = useState(1)
 
     useEffect(() => {
-        rvnAPI.get( 'http://localhost:5000/auth/info').then(response => {
-            setUser(response.data)
-        }).catch(err => console.log(err));
+            rvnAPI.get('/auth/info').then(response => {
+                setUser(response.data)
+            }).catch(err => console.log(err));
         }, []
     )
 
@@ -31,14 +33,16 @@ function App() {
         <Router>
             <UserContext.Provider value={{user, setUser}}>
                 <GuildContext.Provider value={{guild, setGuild}}>
-                <Switch>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/dashboard" component={Dashboard}/>
-                </Switch>
-                </GuildContext.Provider>
-            </UserContext.Provider>
-        </Router>
-    );
+                    <CurrentGuildContext.Provider value={{currentGuild, setCurrentGuild}}>
+                    <Switch>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/dashboard" component={Dashboard}/>
+                    </Switch>
+                </CurrentGuildContext.Provider>
+            </GuildContext.Provider>
+        </UserContext.Provider>
+</Router>
+);
 }
 
 export default App;
