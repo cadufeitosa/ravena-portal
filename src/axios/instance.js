@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiurl = "https://api.ravenabot.com"
+const apiurl = `http://localhost:5000`
 
 const rvnAPI = axios.create({
     baseURL: `${apiurl}`

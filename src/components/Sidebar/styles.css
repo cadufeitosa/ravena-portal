@@ -3,6 +3,26 @@
     overflow: auto;
 }
 
+.userProfile {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.profilePhoto {
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    border: black 1px;
+    border-style: solid;
+    background: #282c34;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 4px;

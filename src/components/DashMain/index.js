@@ -11,6 +11,7 @@ import WelcomeMessage from "../WelcomeMessage";
 import ExitMessage from "../ExitMessage";
 import CounterChange from "../CounterChange";
 import AutoRoleChange from "../AutoRoleChange";
+import ClientEdit from "../ClientEdit";
 
 export default function DashMain() {
     const {guild} = useContext(GuildContext)
@@ -47,6 +48,14 @@ export default function DashMain() {
 
     if (loading) {
         return <p>LOADING</p>
+    }
+
+    if (guild === 3) {
+        return (
+            <>
+                <ClientEdit/>
+            </>
+        )
     }
 
     if (currentGuild === "2") {

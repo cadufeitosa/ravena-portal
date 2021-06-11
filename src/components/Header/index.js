@@ -23,11 +23,11 @@ export default function Header() {
                 </button>
                 {isloggedin ?
                 <button onClick={() =>
-                    window.location.assign('https://api.ravenabot.com/auth')
+                    window.location.assign(`http://localhost:5000/auth`)
                 }>LOGIN
                 </button>
                 : <button onClick={() =>
-                        window.location.assign('https://api.ravenabot.com/auth/logout')
+                        window.location.assign(`http://localhost:5000/auth/logout`)
                     }>LOGOUT
                     </button> }
             </div>
