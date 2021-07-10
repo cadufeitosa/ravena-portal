@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState} from "react";
 import CurrentGuildContext from "../../context/CurrentGuildContext";
 
 import './styles.css'
@@ -8,15 +8,6 @@ import rvnAPI from "../../axios/instance";
 export default function ExitMessage(props) {
 
     const {currentGuild, setCurrentGuild} = useContext(CurrentGuildContext)
-
-    const [apiCalled, setApiCalled] = useState(1)
-
-    useEffect(() => {
-        rvnAPI.get(`/public/getGuild/${props.guild}`).then(response => {
-            const data = response.data.guild
-            setCurrentGuild(data)
-        })
-    }, [apiCalled])
 
     const [channelSelected, setChannelSelected] = useState("")
 
@@ -29,9 +20,7 @@ export default function ExitMessage(props) {
                 </select>
                 <button onClick={() => {
                     rvnAPI.put('/public/exitMessageLigar', {guild_id: props.guild, exit_channel: channelSelected})
-                    setTimeout(function () {
-                        setApiCalled(apiCalled + 1)
-                    }, 500);
+                    setCurrentGuild({...currentGuild, exit_channel: channelSelected, exit_message: true})
                 }
                 }>Ligar no canal selecionado!
                 </button>
@@ -48,17 +37,13 @@ export default function ExitMessage(props) {
             </select>
             <button onClick={() => {
                 rvnAPI.put('/public/exitMessageLigar', {guild_id: props.guild, exit_channel: channelSelected})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, exit_channel: channelSelected, exit_message: true})
             }
             }>Alterar canal!
             </button>
             <button onClick={() => {
                 rvnAPI.put('/public/exitMessageDesligar', {guild_id: props.guild})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, exit_channel: "", exit_message: false})
             }
             }>Desligar mensagem
             </button>

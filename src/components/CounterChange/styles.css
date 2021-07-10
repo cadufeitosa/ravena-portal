@@ -4,10 +4,15 @@
     justify-content: center;
     flex-wrap: wrap;
     background: gainsboro;
-    height: 250px;
+    height: auto;
     width: 500px;
     text-align: center;
     border-radius: 10px;
     column-gap: 2%;
-    margin-top: 5%;
+    margin-top: 5vh;
+    max-width: 90vw;
+}
+
+.counterNotActiveMain button{
+    margin-bottom: 10px;
 }

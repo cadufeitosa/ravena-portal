@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import rvnAPI from "../../axios/instance";
 
 import './styles.css'
@@ -7,15 +7,6 @@ import CurrentGuildContext from "../../context/CurrentGuildContext";
 export default function CounterChange(props) {
 
     const {currentGuild, setCurrentGuild} = useContext(CurrentGuildContext)
-    const [apiCalled, setApiCalled] = useState(1)
-
-    useEffect(() => {
-        rvnAPI.get(`/public/getGuild/${props.guild}`).then(response => {
-            const data = response.data.guild
-
-            setCurrentGuild(data)
-        })
-    }, [apiCalled])
 
 
     if (props.ligado === false) {
@@ -24,7 +15,7 @@ export default function CounterChange(props) {
                 <h1>Seu servidor está com o contador desabilitado!</h1>
                 <button onClick={() => {
                     rvnAPI.put('/public/counterActivate', {guild_id: props.guild})
-                    setTimeout(function(){ setApiCalled(apiCalled + 1) }, 500);
+                    setCurrentGuild({...currentGuild, counter_active: true})
                 }}>Habilitar contador!
                 </button>
             </div>
@@ -37,6 +28,7 @@ export default function CounterChange(props) {
             <h1>Seu servidor está com o contador habilitado!</h1>
             {currentGuild.channels.map(a => {
                 if (props.channels.find(element => element === a.id)) {
+                    // Checks if counter is active in channel
                     return (
                         <>
                             <p key={a.id}>{a.name}</p>
@@ -46,13 +38,14 @@ export default function CounterChange(props) {
                                            guild_id: props.guild,
                                            counter_channels: a.id
                                        })
-                                       setTimeout(function(){ setApiCalled(apiCalled + 1) }, 500);
+                                       setCurrentGuild({...currentGuild, counter_channels: currentGuild.counter_channels.filter(teste => teste !== a.id)})
 
                                    }}/>
                         </>
                     )
                 }
 
+                // writes channel that is not active
                 return (
                     <>
                         <p key={a.id}>{a.name}</p>
@@ -61,18 +54,20 @@ export default function CounterChange(props) {
                                 guild_id: props.guild,
                                 counter_channels: a.id
                             })
-                            setTimeout(function(){ setApiCalled(apiCalled + 1) }, 500);
+                            setCurrentGuild({...currentGuild, counter_channels: currentGuild.counter_channels.concat(a.id)})
 
                         }}/>
                     </>
                 )
             })}
+
             <button onClick={() => {
                 rvnAPI.put('/public/counterDeactivate', {guild_id: props.guild})
-                setTimeout(function(){ setApiCalled(apiCalled + 1) }, 500);
+                setCurrentGuild({...currentGuild, counter_active: false, counter_channels: []})
             }
             }>Desabilitar contador
             </button>
+
         </div>
     )
 }

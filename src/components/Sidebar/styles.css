@@ -1,6 +1,28 @@
-.body {
-    max-height: 90.8vh;
-    overflow: auto;
+.userProfile {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.profilePhoto {
+    border-radius: 50%;
+    max-width: 11vh;
+    max-height: 11vh;
+    width: auto;
+    height: auto;
+    border: black 1px;
+    border-style: solid;
+    background: #282c34;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.userProfile:hover {
+    cursor: pointer;
 }
 
 /* width */
@@ -22,4 +44,26 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@media (max-width: 1000px) {
+    .imagem {
+        padding-right: 10%;
+    }
+
+    .semibody {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .profilePhoto {
+        border-radius: 50%;
+        max-width: 11vh;
+        max-height: 11vh;
+        width: auto;
+        height: auto;
+        border: 1px solid black;
+        background: #282c34;
+        margin-left: 2vw;
+    }
 }

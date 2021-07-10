@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState} from "react";
 import CurrentGuildContext from "../../context/CurrentGuildContext";
 
 import './styles.css'
@@ -8,15 +8,6 @@ import rvnAPI from "../../axios/instance";
 export default function AutoRoleChange(props) {
 
     const {currentGuild, setCurrentGuild} = useContext(CurrentGuildContext)
-
-    const [apiCalled, setApiCalled] = useState(1)
-
-    useEffect(() => {
-        rvnAPI.get(`/public/getGuild/${props.guild}`).then(response => {
-            const data = response.data.guild
-            setCurrentGuild(data)
-        })
-    }, [apiCalled])
 
     const [roleSelected, setRoleSelected] = useState("")
 
@@ -30,9 +21,7 @@ export default function AutoRoleChange(props) {
                 <button onClick={() => {
                     rvnAPI.put('/public/autoRoleLigar', {guild_id: props.guild, cargo_id: roleSelected})
 
-                    setTimeout(function () {
-                        setApiCalled(apiCalled + 1)
-                    }, 500);
+                    setCurrentGuild({...currentGuild, autorole: true, cargo_id: roleSelected});
 
                 }
                 }>Ligar com o cargo selecionado!
@@ -50,17 +39,13 @@ export default function AutoRoleChange(props) {
             </select>
             <button onClick={() => {
                 rvnAPI.put('/public/autoRoleLigar', {guild_id: props.guild, cargo_id: roleSelected})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, autorole: true, cargo_id: roleSelected});
             }
             }>Alterar cargo!
             </button>
             <button onClick={() => {
                 rvnAPI.put('/public/autoRoleDesligar', {guild_id: props.guild})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, autorole: false, cargo_id: ""});
             }
             }>Desligar auto role
             </button>

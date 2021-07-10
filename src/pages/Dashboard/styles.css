@@ -1,20 +1,20 @@
-.main{
-    overflow: unset;
-}
-
 .dashOuter {
     display: grid;
     grid-template-columns: 10% 90%;
+    grid-template-rows: 100%;
     background-image: linear-gradient(to bottom right, darkmagenta, indigo);
-
 }
 
-.side {
-
+.dashboard {
+    overflow: hidden;
+    max-height: 100vh;
 }
 
-.mainDash {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 1000px) {
+    .dashOuter {
+        display: grid;
+        grid-template-rows: 10% 90%;
+        grid-template-columns: 100%;
+        background-image: linear-gradient(to bottom right, darkmagenta, indigo);
+    }
 }
