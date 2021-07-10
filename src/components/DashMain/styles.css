@@ -1,19 +1,75 @@
-.mainNotInServer {
+.dashInner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 5%;
+    overflow: auto;
+    height: 85vh;
+}
+
+.SideBar {
+    height: 91vh;
+    overflow: auto;
+}
+
+.selectServer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     background: gainsboro;
     height: 250px;
-    width: 900px;
+    width: 500px;
     text-align: center;
     border-radius: 10px;
+    column-gap: 2%;
+    margin-top: 5vh;
+    max-width: 90vw;
 }
 
-.dashMain{
+.notInServer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5%;
+    background: gainsboro;
+    height: 250px;
+    width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    column-gap: 2%;
+    margin-top: 5vh;
+    max-width: 90vw;
+}
+
+@media (max-width: 1000px) {
+    .SideBar {
+        overflow-y: hidden;
+        overflow-x: auto;
+        display: flex;
+        flex-direction: row;
+        height: 15vh;
+    }
+
+    .dashInner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 5%;
+        overflow: auto;
+        height: 71vh;
+        margin-top: 8vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .dashInner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 5%;
+        overflow: auto;
+        height: 60vh;
+        margin-top: 8vh;
+    }
 }

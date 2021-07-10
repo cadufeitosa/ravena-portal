@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState} from "react";
 import CurrentGuildContext from "../../context/CurrentGuildContext";
 
 import './styles.css'
@@ -8,15 +8,6 @@ import rvnAPI from "../../axios/instance";
 export default function ExitMessage(props) {
 
     const {currentGuild, setCurrentGuild} = useContext(CurrentGuildContext)
-
-    const [apiCalled, setApiCalled] = useState(1)
-
-    useEffect(() => {
-        rvnAPI.get(`/public/getGuild/${props.guild}`).then(response => {
-            const data = response.data.guild
-            setCurrentGuild(data)
-        })
-    }, [apiCalled])
 
     const [channelSelected, setChannelSelected] = useState("")
 
@@ -29,9 +20,7 @@ export default function ExitMessage(props) {
                 </select>
                 <button onClick={() => {
                     rvnAPI.put('/public/welcomeMessageLigar', {guild_id: props.guild, welcome_channel: channelSelected})
-                    setTimeout(function () {
-                        setApiCalled(apiCalled + 1)
-                    }, 500);
+                    setCurrentGuild({...currentGuild, welcome_message: true, welcome_channel: channelSelected})
                 }
                 }>Ligar no canal selecionado!
                 </button>
@@ -47,17 +36,13 @@ export default function ExitMessage(props) {
             </select>
             <button onClick={() => {
                 rvnAPI.put('/public/welcomeMessageLigar', {guild_id: props.guild, welcome_channel: channelSelected})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, welcome_channel: channelSelected})
             }
             }>Alterar canal!
             </button>
             <button onClick={() => {
                 rvnAPI.put('/public/welcomeMessageDesligar', {guild_id: props.guild})
-                setTimeout(function () {
-                    setApiCalled(apiCalled + 1)
-                }, 500);
+                setCurrentGuild({...currentGuild, welcome_message: false, welcome_channel: ""})
             }
             }>Desligar mensagem
             </button>

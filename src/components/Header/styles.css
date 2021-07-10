@@ -1,4 +1,4 @@
-.outer {
+.headerOuter {
     display: flex;
     height: 8%;
     gap: 55vw;
@@ -51,7 +51,7 @@ button:hover {
         width: 15vw;
         font-size: 1vw;
     }
-    .outer {
+    .headerOuter {
         display: flex;
         height: 8%;
         gap: 37vw;
@@ -75,7 +75,7 @@ button:hover {
         width: 15vw;
         font-size: 1.2vw;
     }
-    .outer {
+    .headerOuter {
         display: flex;
         height: 8%;
         gap: 30vw;
@@ -99,7 +99,7 @@ button:hover {
         width: 20vw;
         font-size: 1.5vw;
     }
-    .outer {
+    .headerOuter {
         display: flex;
         flex-wrap: wrap;
         gap: 8vw;
@@ -126,14 +126,14 @@ button:hover {
         width: 25vw;
         font-size: 2.6vw;
     }
-    .outer {
+    .headerOuter {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         margin-bottom: 8%;
-        gap: 0vw;
-        margin-left: 0px;
+        gap: 0;
+        margin-left: 0;
     }
     .title {
         color: purple;

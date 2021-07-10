@@ -10,17 +10,11 @@ import DashMain from "../../components/DashMain"
 export default function Dashboard() {
 
     return (
-        <div className="main">
-            <div>
+        <div className="dashboard">
                 <Header/>
-            </div>
             <div className="dashOuter">
-                <div className="side">
-                    <Sidebar/>
-                </div>
-                <div className="mainDash">
-                    <DashMain/>
-                </div>
+                <Sidebar/>
+                <DashMain/>
             </div>
         </div>
     )

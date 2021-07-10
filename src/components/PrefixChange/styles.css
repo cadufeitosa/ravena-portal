@@ -9,7 +9,8 @@
     text-align: center;
     border-radius: 10px;
     column-gap: 2%;
-    margin-top: 5%;
+    margin-top: 5vh;
+    max-width: 90vw;
 }
 
 .prefixAtual {

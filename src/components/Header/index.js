@@ -11,7 +11,7 @@ export default function Header() {
 
     const isloggedin = user === 1
     return (
-        <div className="outer">
+        <div className="headerOuter">
             <h1 className="title" onClick={() => history.push('/')}>RAVENA</h1>
             <div className="inner">
                 <button onClick={() => {isloggedin ? window.alert("Você deve estar logado para acessar o dashboard") :
@@ -23,11 +23,11 @@ export default function Header() {
                 </button>
                 {isloggedin ?
                 <button onClick={() =>
-                    window.location.assign(`http://localhost:5000/auth`)
+                    window.location.assign(`https://api.ravenabot.com/auth`)
                 }>LOGIN
                 </button>
                 : <button onClick={() =>
-                        window.location.assign(`http://localhost:5000/auth/logout`)
+                        window.location.assign(`https://api.ravenabot.com/auth/logout`)
                     }>LOGOUT
                     </button> }
             </div>

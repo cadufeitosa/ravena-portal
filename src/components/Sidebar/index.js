@@ -4,11 +4,11 @@ import '../Sidebar/styles.css'
 import userContext from '../../context/UserContext'
 
 import SideIcons from "../SideIcons";
-import GuildContext from "../../context/GuildContext";
+// import GuildContext from "../../context/GuildContext";
 
 export default function Sidebar() {
     const {user} = useContext(userContext)
-    const {setGuild} = useContext(GuildContext)
+    // const {setGuild} = useContext(GuildContext)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -24,19 +24,17 @@ export default function Sidebar() {
 
 
     return (
-        <div className="body">
-            <div className="userProfile">
-                <img src={`https://cdn.discordapp.com/avatars/${user.user_id}/${user.profilePicture}`} alt="HIHIHI" className="profilePhoto" onClick={() => setGuild(3)}/>
-            </div>
-            <div>
+        <div className="SideBar">
+            {/*<div className="userProfile">*/}
+            {/*    <img src={`https://cdn.discordapp.com/avatars/${user.user_id}/${user.profilePicture}`} alt="HIHIHI" className="profilePhoto" onClick={() => setGuild(3)}/>*/}
+            {/*</div>*/}
             {user.guilds.map(a => {
                 if (a.owner) {
                     return <div>
-                        <SideIcons photo={a.icon} id={a.id} name={a.name} key={a.id}/>
+                        <SideIcons className="imagem" photo={a.icon} id={a.id} name={a.name} key={a.id}/>
                     </div>
                 }
             })}
-            </div>
         </div>
     )
 }
